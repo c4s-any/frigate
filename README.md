@@ -29,8 +29,8 @@ Uses a very **low overhead** motion detection to determine where to run object d
 - 目标检测在**单独的进程**中运行，以实现最大FPS。<br>
 Object detection runs in **separate processes** for maximum FPS.
 
-- 在抓取不到人脸和车牌的情况下，**ReID** 可以从抓拍目标中提取出有效的特征（车型、颜色、衣着、年龄段等）。<br>
-When the face and license plate cannot be captured, **ReID** can extract effective features (model, color, clothing, age, etc.) from the captured target.
+- 在抓取不到人脸和车牌的情况下，**ReID** 可以从抓拍**目标**中提取出有效的**特征**（车型、颜色、衣着、年龄段等）。<br>
+When the face and license plate cannot be captured, **ReID** can extract effective **features** (model, color, clothing, age, etc.) from the captured **target**.
 
 - **语义搜索**功能允许您通过图像本身、用户定义的文本描述或自动生成的描述来查找您的跟踪目标。<br>
 **Semantic Search** allows you to find tracked objects using either the image itself, a user-defined text description, or an automatically generated one. 
