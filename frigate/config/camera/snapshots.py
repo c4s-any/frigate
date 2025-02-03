@@ -37,7 +37,7 @@ class SnapshotsConfig(FrigateBaseModel):
         default_factory=RetainConfig, title="Snapshot retention."
     )
     quality: int = Field(
-        default=70,
+        default=85,
         title="Quality of the encoded jpeg (0-100).",
         ge=0,
         le=100,
