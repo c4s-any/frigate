@@ -89,11 +89,11 @@ Compared with the original Frigate, it adds human-vehicle attribute recognition,
 
 ### 机动车属性识别（Vehicle ReID）
 <div>
-<img width="800" alt="Streamlined review workflow" src="https://c4s.tech/img/printscreen04_1.jpg">
+<img width="800" alt="Streamlined review workflow" src="https://c4s.tech/img/printscreen04.jpg">
 </div>
 
 <div>
-<img width="800" alt="Streamlined review workflow" src="https://c4s.tech/img/printscreen05_1.jpg">
+<img width="800" alt="Streamlined review workflow" src="https://c4s.tech/img/printscreen05.jpg">
 </div>
 
 ### 内置遮罩和防区编辑器（Built-in mask and zone editor）
