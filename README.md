@@ -78,7 +78,7 @@ Compared with the original Frigate, it adds human-vehicle attribute recognition,
 <img width="800" alt="Live dashboard" src="https://c4s.tech/img/printscreen01_1.jpg">
 </div>
 
-### 行人属性识别（Person ReID）
+### 行人特征识别（Person ReID）
 <div>
 <img width="800" alt="Streamlined review workflow" src="https://c4s.tech/img/printscreen06_1.jpg">
 </div>
@@ -87,7 +87,7 @@ Compared with the original Frigate, it adds human-vehicle attribute recognition,
 <img width="800" alt="Streamlined review workflow" src="https://c4s.tech/img/printscreen07_1.jpg">
 </div>
 
-### 机动车属性识别（Vehicle ReID）
+### 机动车特征识别（Vehicle ReID）
 <div>
 <img width="800" alt="Streamlined review workflow" src="https://c4s.tech/img/printscreen04_2.jpg">
 </div>
