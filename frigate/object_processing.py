@@ -563,14 +563,14 @@ class TrackedObjectProcessor(threading.Thread):
 
         def end(camera: str, obj: TrackedObject, frame_name: str):
             """
-            处理跟踪对象的结束逻辑，包括快照保存、属性识别和 MQTT 消息发布。
+            处理跟踪对象的结束逻辑，包括抓拍保存、属性识别和 MQTT 消息发布。
 
             参数:
             camera: 摄像头名称。
             obj: 跟踪对象。
             frame_name: 帧名称。
             """
-            # 检查是否需要保存快照和录制片段
+            # 检查是否需要保存抓拍和录制片段
             obj.has_snapshot = self.should_save_snapshot(camera, obj)
             obj.has_clip = self.should_retain_recording(camera, obj)
 
@@ -588,7 +588,7 @@ class TrackedObjectProcessor(threading.Thread):
                     lpid_config.min_score, reid_config.min_score_p, reid_config.min_score_v
                 )
 
-                # 发布 MQTT 快照
+                # 发布 MQTT 抓拍
                 if mqtt_config.enabled and self.should_mqtt_snapshot(camera, obj):
                     if attr_jpg_bytes is None:
                         logger.warning(
@@ -601,7 +601,7 @@ class TrackedObjectProcessor(threading.Thread):
                             retain=True,
                         )
 
-            # 保存快照到磁盘
+            # 保存抓拍到磁盘
             if obj.has_snapshot:
                 jpg_bytes = obj.get_jpg_bytes(
                     timestamp=snapshot_config.timestamp,
@@ -613,7 +613,7 @@ class TrackedObjectProcessor(threading.Thread):
                 if jpg_bytes is None:
                     logger.warning(f"Unable to save snapshot for {obj.obj_data['id']}.")
                 else:
-                    # 保存属性快照或普通快照
+                    # 保存属性抓拍或普通抓拍
                     if attr_jpg_bytes is not None:
                         snapshot_bytes = attr_jpg_bytes
                     else:
@@ -625,7 +625,7 @@ class TrackedObjectProcessor(threading.Thread):
                     except Exception as e:
                         logger.error(f"Failed to save snapshot to {snapshot_path}: {e}")
 
-                # 保存干净快照（如果启用）
+                # 保存干净抓拍（如果启用）
                 if snapshot_config.clean_copy:
                     png_bytes = obj.get_clean_png()
                     if png_bytes is None:
