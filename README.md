@@ -63,12 +63,12 @@ View the documentation at [https://c4s.tech/docs/](https://c4s.tech/docs/)
 人/车 ReID、YOLO-NAS、Yolov7-tiny 和 MobileDet 模型已经测试可用，这些模型都是个人训练的。我在代码中添加了注册和解密的模块，用以保护加密的模型，但不影响非加密的模型使用。<br>
 The person/vehicle ReID, YOLO-NAS, Yolov7-tiny and MobileDet models are also already available, which are all personally trained. I have added modules for registration and decryption to the code to protect the encrypted models. However, it does not affect the use of non-encrypted models.
 
-人/车 ReID 使用 ONNX 检测器进行模型推理，支持 30 多种行人属性、400 百多种车型识别。<br>
-Person/Vehicle ReID uses ONNX detector for model inference, supporting more than 30 pedestrian attributes and more than 400 vehicle types.
+人/车 ReID 使用 ONNX 检测器进行模型推理，支持 30 多种行人特征、多种车辆特征、400多种车型。<br>
+Person/Vehicle ReID uses ONNX detector for model inference, supporting more than 30 pedestrian features, multiple vehicle features, and more than 400 vehicle models.
 
 ## 增加的部分
 
-相比原始Frigate增加了人车属性识别、车牌识别（仅限中国），前端UI已经汉化为简体中文。车牌识别是将[hyperlpr3](https://github.com/szad670401/HyperLPR)代码和模型加了进来，运行时不需要再拉取，主要是在中国很难下载，另外make构建时pip源更换成了清华的，有利于中国的用户可以加速构建镜像。我已经成功测试构建x86镜像（英伟达和Coral Edgetpu）并正常运行，没有测试arm64平台（因为手上没有相关硬件设备）。<br>
+相比原始Frigate增加了人车特征识别、车牌识别（仅限中国），前端UI已经汉化为简体中文。车牌识别是将[hyperlpr3](https://github.com/szad670401/HyperLPR)代码和模型加了进来，运行时不需要再拉取，主要是在中国很难下载，另外make构建时pip源更换成了清华的，有利于中国的用户可以加速构建镜像。我已经成功测试构建x86镜像（英伟达和Coral Edgetpu）并正常运行，没有测试arm64平台（因为手上没有相关硬件设备）。<br>
 Compared with the original Frigate, it adds human-vehicle attribute recognition, license plate recognition (China only), and the front-end UI has been simplified into Simplified Chinese. License plate recognition is the [hyperlpr3](https://github.com/szad670401/HyperLPR) code and model added in, runtime does not need to pull again, mainly in China is difficult to download, in addition to make build pip source replaced with Tsinghua source, in favor of Chinese users can accelerate the build image. I've successfully tested building x86 images (nVidia and Coral edgetpu) and running them properly, not testing the arm64 platform (as I don't have the relevant hardware devices on hand).
 
 ## 截图（Screenshots）
