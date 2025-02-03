@@ -1,5 +1,5 @@
 <p align="center">
-  <img align="center" alt="logo" src="web/images/favicon.png" style="width:128px;">
+  <img align="center" alt="logo" src="https://github.com/blakeblackshear/frigate/blob/dev/docs/static/img/frigate.png">
 </p>
 
 # 具有本地实时目标检测、人/车特征识别和语义搜索功能的 NVR
