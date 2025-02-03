@@ -1,8 +1,8 @@
 <p align="center">
-  <img align="center" alt="logo" src="docs/static/img/frigate.png">
+  <img align="center" alt="logo" src="web/images/favicon.png" style="width:128px;">
 </p>
 
-# 具有本地实时目标检测、人车特征识别和语义搜索功能的 NVR
+# 具有本地实时目标检测、人/车特征识别和语义搜索功能的 NVR
 ## NVR with realtime local object detection, person/vehicle ReID and semantic search 
 
 以 Blake Blackshear 的 [Frigate](https://github.com/blakeblackshear/frigate.git) v0.15.0-beta2为基础，用 [hyperlpr3](https://github.com/szad670401/HyperLPR) 做车牌识别（仅限中国），参考 [Rethinking_of_PAR](https://github.com/valencebond/Rethinking_of_PAR.git) 自制数据集训练人/车 ReID 模型，用于识别人/车特征。<br>
