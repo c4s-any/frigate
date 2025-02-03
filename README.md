@@ -8,7 +8,7 @@
 以 Blake Blackshear 的 [Frigate](https://github.com/blakeblackshear/frigate.git) v0.15.0-beta2为基础，用 [hyperlpr3](https://github.com/szad670401/HyperLPR) 做车牌识别（仅限中国），参考 [Rethinking_of_PAR](https://github.com/valencebond/Rethinking_of_PAR.git) 自制数据集训练人/车 ReID 模型，用于识别人/车特征。<br>
 Based on Blake Blackshear's [Frigate](https://github.com/blakeblackshear/frigate.git) v0.15.0-beta2, use [hyperlpr3](https://github.com/szad670401/HyperLPR) for license plate recognition (China only), and refer to [Rethinking_of_PAR](https://github.com/valencebond/Rethinking_of_PAR.git) to train a person/car ReID model with specialized datasets for identifying person/car features.
 
-最后整合成专为 [Home Assistant](https://www.home-assistant.io) 设计具有本地实时目标检测、人/车特征识别和语义搜索功能的完整 NVR。为网络摄像机进行实时本地目标检测。 <br>
+最后整合成专为 [Home Assistant](https://www.home-assistant.io) 设计具有本地实时目标检测、人/车特征识别和语义搜索功能的完整 NVR。 <br>
 A complete NVR designed for [Home Assistant](https://www.home-assistant.io) with funtions of realtime object detection locally, person/vehicle ReID and Semantic Search.
 
 使用 Google Coral Accelerator 是可选的，但强烈建议使用。CPU 检测只能用于测试目的。Coral 的性能甚至优于最好的 CPU，且能以很少的开销处理 100+ FPS。<br>
