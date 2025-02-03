@@ -2,49 +2,107 @@
   <img align="center" alt="logo" src="docs/static/img/frigate.png">
 </p>
 
-# Frigate - NVR With Realtime Object Detection for IP Cameras
+# 具有实时目标检测和人车属性识别功能的NVR
+## NVR With Realtime Object Detection and Person/Vehicle ReID for IP Cameras
 
-A complete and local NVR designed for [Home Assistant](https://www.home-assistant.io) with AI object detection. Uses OpenCV and Tensorflow to perform realtime object detection locally for IP cameras.
+以 Blake Blackshear 的 [Frigate](https://github.com/blakeblackshear/frigate.git) 的v0.15.0-beta2为基础，用 [hyperlpr3](https://github.com/szad670401/HyperLPR) 做车牌识别（仅限中国），参考 [Rethinking_of_PAR](https://github.com/valencebond/Rethinking_of_PAR.git) 自制数据集训练人/车 ReID 模型，用于识别人/车特征。<br>
+Based on Blake Blackshear's [Frigate](https://github.com/blakeblackshear/frigate.git), use [hyperlpr3](https://github.com/szad670401/HyperLPR) for license plate recognition (China only), and refer to [Rethinking_of_PAR](https://github.com/valencebond/Rethinking_of_PAR.git) to train a person/car ReID model with specialized datasets for identifying person/car features.
 
+最后整合成专为 [Home Assistant](https://www.home-assistant.io) 设计具有本地实时目标检测、人/车特征识别和语义搜索功能的完整 NVR。为网络摄像机进行实时本地目标检测。 <br>
+A complete NVR designed for [Home Assistant](https://www.home-assistant.io) with funtions of realtime object detection locally, person/vehicle ReID and Semantic Search.
+
+使用 Google Coral Accelerator 是可选的，但强烈建议使用。CPU 检测只能用于测试目的。Coral 的性能甚至优于最好的 CPU，且能以很少的开销处理 100+ FPS。<br>
 Use of a [Google Coral Accelerator](https://coral.ai/products/) is optional, but highly recommended. The Coral will outperform even the best CPUs and can process 100+ FPS with very little overhead.
 
-- Tight integration with Home Assistant via a [custom component](https://github.com/blakeblackshear/frigate-hass-integration)
-- Designed to minimize resource use and maximize performance by only looking for objects when and where it is necessary
-- Leverages multiprocessing heavily with an emphasis on realtime over processing every frame
-- Uses a very low overhead motion detection to determine where to run object detection
-- Object detection with TensorFlow runs in separate processes for maximum FPS
-- Communicates over MQTT for easy integration into other systems
-- Records video with retention settings based on detected objects
-- 24/7 recording
-- Re-streaming via RTSP to reduce the number of connections to your camera
-- WebRTC & MSE support for low-latency live view
+- 通过定制组件与Home Assistant紧密集成<br>
+Tight integration with Home Assistant via a [custom component](https://github.com/blakeblackshear/frigate-hass-integration)
 
-## Documentation
+- 旨在通过仅在需要的时间和地点查找目标来最大程度地减少资源使用，并最大限度地提高性能。<br>
+Designed to minimize resource use and maximize performance by only looking for objects when and where it is necessary
 
-View the documentation at https://docs.frigate.video
+- 充分利用多进程，强调实时性而不是处理每一帧<br>
+Leverages multiprocessing heavily with an emphasis on realtime over processing every frame
 
-## Donations
+- 使用非常低开销的动态侦测来确定在何处运行目标检测<br>
+Uses a very low overhead motion detection to determine where to run object detection
 
-If you would like to make a donation to support development, please use [Github Sponsors](https://github.com/sponsors/blakeblackshear).
+- 目标检测在单独的进程中运行，以实现最大FPS<br>
+Object detection runs in separate processes for maximum FPS
 
-## Screenshots
+- 语义搜索功能允许您通过图像本身、用户定义的文本描述或自动生成的描述来查找您的跟踪目标。<br>
+Semantic Search allows you to find tracked objects using either the image itself, a user-defined text description, or an automatically generated one. 
 
-### Live dashboard
+- 生成式 AI 可用于根据跟踪目标的缩略图自动生成描述性文本。这有助于在 Frigate 中进行语义搜索，为您的跟踪目标提供更多上下文信息。<br>
+Generative AI can be used to automatically generate descriptive text based on the thumbnails of your tracked objects. This helps with Semantic Search in Frigate to provide more context about your tracked objects. 
+
+- 通过MQTT进行通信，以便轻松集成到其他系统<br>
+Communicates over MQTT for easy integration into other systems
+
+- 基于检测到的目标进行录像存储<br>
+Records video with retention settings based on detected objects
+
+- 24/7 录像<br>
+24/7 recording
+  
+- 通过RTSP重新串流以减少与摄像机的连接数<br>
+Re-streaming via RTSP to reduce the number of connections to your camera
+
+- 支持 WebRTC 和 MSE，可实现低延迟实时查看<br>
+WebRTC & MSE support for low-latency live view
+
+## 文档（Documentation）
+
+请访问 [https://c4s.tech/docs/](https://c4s.tech/docs/) 查看文档<br>
+View the documentation at [https://c4s.tech/docs/](https://c4s.tech/docs/)
+
+## 模型（Model）
+
+人/车 ReID、YOLO-NAS、Yolov7-tiny和MobileDet模型已经测试可用，训练模型需要花费大量的时间、精力和电费，这些模型都是个人训练的。我在代码中添加了注册和解密的模块，用以保护加密的模型。<br>
+The person/vehicle ReID, YOLO-NAS, Yolov7-tiny and MobileDet models are also already available, and it costs a lot of time, effort, and electricity to train the models, which are all personally trained. I have added modules for registration and decryption to the code to protect the encrypted models.
+
+人/车 ReID使用ONNX检测器进行模型推理，支持30多种行人属性、400百多种车型识别。<br>
+Person/Vehicle ReID uses ONNX detector for model inference, supporting more than 30 pedestrian attributes and more than 400 vehicle types.
+
+## 增加的部分
+
+相比原始Frigate增加了人车属性识别、车牌识别（仅限中国），前端UI已经汉化为简体中文。车牌识别是将[hyperlpr3](https://github.com/szad670401/HyperLPR)代码和模型加了进来，运行时不需要再拉取，主要是在中国很难下载，另外make构建时pip源更换成了清华的，有利于中国的用户可以加速构建镜像。我已经成功测试构建x86镜像（英伟达和Coral Edgetpu）并正常运行，没有测试arm64平台（因为手上没有相关硬件设备）。<br>
+Compared with the original Frigate, it adds human-vehicle attribute recognition, license plate recognition (China only), and the front-end UI has been simplified into Simplified Chinese. License plate recognition is the [hyperlpr3](https://github.com/szad670401/HyperLPR) code and model added in, runtime does not need to pull again, mainly in China is difficult to download, in addition to make build pip source replaced with Tsinghua source, in favor of Chinese users can accelerate the build image. I've successfully tested building x86 images (nVidia and Coral edgetpu) and running them properly, not testing the arm64 platform (as I don't have the relevant hardware devices on hand).
+
+## 截图（Screenshots）
+
+### 实时看板（Live dashboard）
 <div>
-<img width="800" alt="Live dashboard" src="https://github.com/blakeblackshear/frigate/assets/569905/5e713cb9-9db5-41dc-947a-6937c3bc376e">
+<img width="800" alt="Live dashboard" src="https://c4s.tech/img/printscreen01_1.jpg">
 </div>
 
-### Streamlined review workflow
+### 行人属性识别（Person ReID）
 <div>
-<img width="800" alt="Streamlined review workflow" src="https://github.com/blakeblackshear/frigate/assets/569905/6fed96e8-3b18-40e5-9ddc-31e6f3c9f2ff">
+<img width="800" alt="Streamlined review workflow" src="https://c4s.tech/img/printscreen06.jpg">
 </div>
 
-### Multi-camera scrubbing
 <div>
-<img width="800" alt="Multi-camera scrubbing" src="https://github.com/blakeblackshear/frigate/assets/569905/d6788a15-0eeb-4427-a8d4-80b93cae3d74">
+<img width="800" alt="Streamlined review workflow" src="https://c4s.tech/img/printscreen07.jpg">
 </div>
 
-### Built-in mask and zone editor
+### 机动车属性识别（Vehicle ReID）
 <div>
-<img width="800" alt="Multi-camera scrubbing" src="https://github.com/blakeblackshear/frigate/assets/569905/d7885fc3-bfe6-452f-b7d0-d957cb3e31f5">
+<img width="800" alt="Streamlined review workflow" src="https://c4s.tech/img/printscreen04_1.jpg">
+</div>
+
+<div>
+<img width="800" alt="Streamlined review workflow" src="https://c4s.tech/img/printscreen05_1.jpg">
+</div>
+
+### 内置遮罩和防区编辑器（Built-in mask and zone editor）
+<div>
+<img width="800" alt="Built-in mask and zone editor" src="https://c4s.tech/img/printscreen08.jpg">
+</div>
+
+<div>
+<img width="800" alt="Built-in mask and zone editor" src="https://c4s.tech/img/printscreen09.jpg">
+</div>
+
+### 多摄像机警报消除（Multi-camera scrubbing）
+<div>
+<img width="800" alt="Built-in mask and zone editor" src="https://c4s.tech/img/printscreen02_1.jpg">
 </div>
