@@ -57,8 +57,8 @@ View the documentation at [https://c4s.tech/docs/](https://c4s.tech/docs/)
 
 ## 模型（Model）
 
-人/车 ReID、YOLO-NAS、Yolov7-tiny和MobileDet模型已经测试可用，训练模型需要花费大量的时间、精力和电费，这些模型都是个人训练的。我在代码中添加了注册和解密的模块，用以保护加密的模型。<br>
-The person/vehicle ReID, YOLO-NAS, Yolov7-tiny and MobileDet models are also already available, and it costs a lot of time, effort, and electricity to train the models, which are all personally trained. I have added modules for registration and decryption to the code to protect the encrypted models.
+人/车 ReID、YOLO-NAS、Yolov7-tiny和MobileDet模型已经测试可用，这些模型都是个人训练的。我在代码中添加了注册和解密的模块，用以保护加密的模型，但不影响非加密的模型使用。<br>
+The person/vehicle ReID, YOLO-NAS, Yolov7-tiny and MobileDet models are also already available, which are all personally trained. I have added modules for registration and decryption to the code to protect the encrypted models. However, it does not affect the use of non-encrypted models.
 
 人/车 ReID使用ONNX检测器进行模型推理，支持30多种行人属性、400百多种车型识别。<br>
 Person/Vehicle ReID uses ONNX detector for model inference, supporting more than 30 pedestrian attributes and more than 400 vehicle types.
