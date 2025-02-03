@@ -10,7 +10,7 @@ function en2zh(text: any): string {
   if (text == "red") {
     return "红色";
   }
-  if (text == "highcontrast") {
+  if (text == "high contrast") {
     return "高对比";
   }
   if (text == "default") {
