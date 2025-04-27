@@ -1,0 +1,35 @@
+{
+  "alerts": "警报",
+  "detections": "检测",
+  "motion": {
+    "label": "动态",
+    "only": "仅动态"
+  },
+  "allCameras": "所有摄像头",
+  "empty": {
+    "alert": "还没有“警报”类回放",
+    "detection": "还没有“检测”类回放",
+    "motion": "还没有动态类数据"
+  },
+  "timeline": "时间线",
+  "timeline.aria": "选择时间线",
+  "events": {
+    "label": "事件",
+    "aria": "选择事件",
+    "noFoundForTimePeriod": "未找到该时间段的事件。"
+  },
+  "documentTitle": "审查 - Frigate",
+  "recordings": {
+    "documentTitle": "录像 - Frigate"
+  },
+  "calendarFilter": {
+    "last24Hours": "过去24小时"
+  },
+  "markAsReviewed": "标记为已审查",
+  "markTheseItemsAsReviewed": "将这些项标记为已审查",
+  "newReviewItems": {
+    "label": "查看新的审查项",
+    "button": "新的待审查项"
+  },
+  "camera": "摄像头"
+}
