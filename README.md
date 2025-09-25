@@ -6,7 +6,7 @@
 
 <p align="center"><a href="https://github.com/c4s-any/frigate/blob/dev/README.md">EN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/c4s-any/frigate/blob/dev/README_CN.md">中文</a></p>
 
-Based on Blake Blackshear's [Frigate](https://github.com/blakeblackshear/frigate.git), [hyperlpr3](https://github.com/szad670401/HyperLPR) is used for Chinese license plate recognition, while the original Paddle license plate recognition is retained to support other countries and regions. Referencing Rethinking_of_PAR, a custom dataset is used to train pedestrian/vehicle ReID models for identifying pedestrian/vehicle features.
+Based on Blake Blackshear's [Frigate](https://github.com/blakeblackshear/frigate.git), [hyperlpr3](https://github.com/szad670401/HyperLPR) is used for Chinese license plate recognition, while the original Paddle license plate recognition is retained to support other countries and regions. Referencing [Rethinking_of_PAR](https://github.com/valencebond/Rethinking_of_PAR.git), a custom dataset is used to train pedestrian/vehicle ReID models for identifying pedestrian/vehicle features.
 
 It eventually grew into **a complete NVR that can be integrated with [Home Assistant](https://www.home-assistant.io) and with funtions of realtime object detection locally, pedestrian/vehicle ReID and Semantic Search**.
 
