@@ -6,9 +6,9 @@
 
 <p align="center"><a href="https://github.com/c4s-any/frigate/blob/dev/README.md">EN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/c4s-any/frigate/blob/dev/README_CN.md">中文</a></p>
 
-Based on Blake Blackshear's Frigate, hyperlpr3 is used for Chinese license plate recognition, while the original Paddle license plate recognition is retained to support other countries and regions. Referencing Rethinking_of_PAR, a custom dataset is used to train person/vehicle ReID models for identifying person/vehicle features.
+Based on Blake Blackshear's Frigate, hyperlpr3 is used for Chinese license plate recognition, while the original Paddle license plate recognition is retained to support other countries and regions. Referencing Rethinking_of_PAR, a custom dataset is used to train pedestrian/vehicle ReID models for identifying pedestrian/vehicle features.
 
-It eventually grew into **a complete NVR that can be integrated with [Home Assistant](https://www.home-assistant.io) and with funtions of realtime object detection locally, person/vehicle ReID and Semantic Search**.
+It eventually grew into **a complete NVR that can be integrated with [Home Assistant](https://www.home-assistant.io) and with funtions of realtime object detection locally, pedestrian/vehicle ReID and Semantic Search**.
 
 Use of a [Google Coral Accelerator](https://coral.ai/products/) is optional, but highly recommended. The Coral will outperform even the best CPUs and can process 100+ FPS with very little overhead.
 
@@ -44,9 +44,9 @@ View the documentation at [https://c4s.tech/docs/](https://c4s.tech/docs/)
 
 ## Model
 
-The person/vehicle ReID and YOLO-NAS models are also already available, which are all personally trained.
+The pedestrian/vehicle ReID and YOLO-NAS models are also already available, which are all personally trained.
 
-Person/Vehicle ReID uses ONNX detector for model inference, supporting more than 30 pedestrian features, multiple vehicle features, and more than 400 vehicle models.
+Pedestrian/Vehicle ReID uses ONNX detector for model inference, supporting more than 30 pedestrian features, multiple vehicle features, and more than 400 vehicle models.
 
 These models are encrypted models. If you need them, you can contact me, but it does not prevent you from using your own models.
 
