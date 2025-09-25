@@ -1,0 +1,99 @@
+# Example Frigate configuration with HyperLPR enabled
+# This is an example configuration showing how to enable HyperLPR for license plate recognition
+
+mqtt:
+  host: 192.168.1.100
+  user: mqtt_user
+  password: mqtt_password
+
+detectors:
+  cpu1:
+    type: cpu
+
+model:
+  path: /openvino-model/ssdlite_mobilenet_v2.xml
+  input_tensor: nhwc
+  input_pixel_format: bgr
+  width: 300
+  height: 300
+
+# Enable license plate recognition with HyperLPR
+lpr:
+  enabled: true
+  use_hyperlpr: true  # Use HyperLPR instead of PaddleOCR
+  device: cpu  # or gpu if you have CUDA support
+  model_size: small
+  detection_threshold: 0.7
+  min_area: 1000
+  recognition_threshold: 0.8
+  min_plate_length: 4
+  format: "^[A-Z0-9]{4,8}$"  # Example format for license plates
+  enhancement: 2
+  debug_save_plates: false
+
+cameras:
+  front_door:
+    ffmpeg:
+      inputs:
+        - path: rtsp://192.168.1.100:554/stream
+          roles:
+            - detect
+            - record
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    objects:
+      track:
+        - person
+        - car
+        - motorcycle
+    # Enable LPR for this camera
+    lpr:
+      enabled: true
+      expire_time: 3
+      min_area: 1000
+      enhancement: 2
+
+  parking_lot:
+    ffmpeg:
+      inputs:
+        - path: rtsp://192.168.1.101:554/stream
+          roles:
+            - detect
+            - record
+    detect:
+      width: 1920
+      height: 1080
+      fps: 10
+    objects:
+      track:
+        - car
+        - motorcycle
+        - truck
+    # Enable LPR for parking lot camera
+    lpr:
+      enabled: true
+      expire_time: 5
+      min_area: 1500
+      enhancement: 3
+
+record:
+  enabled: true
+  retain:
+    days: 30
+    mode: motion
+
+snapshots:
+  enabled: true
+  retain:
+    default: 30
+
+go2rtc:
+  streams:
+    front_door:
+      - rtsp://192.168.1.100:554/stream
+    parking_lot:
+      - rtsp://192.168.1.101:554/stream
+
+
