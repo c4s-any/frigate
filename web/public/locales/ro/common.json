@@ -1,8 +1,0 @@
-{
-  "time": {
-    "untilForTime": "Pana la {{time}}",
-    "untilForRestart": "Pana la repornirea Frigate.",
-    "untilRestart": "Pana la repornire",
-    "ago": "{{timeAgo}} in urma"
-  }
-}
