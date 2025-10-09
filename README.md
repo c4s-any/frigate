@@ -61,7 +61,7 @@ Compared with the original Frigate, it adds pedestrian/vehicle feature recogniti
 <img width="800" alt="Live dashboard" src="https://c4s.tech/img/printscreen01_1.jpg">
 </div>
 
-### Person ReID
+### Pedestrian ReID
 <div>
 <img width="800" alt="Streamlined review workflow" src="https://c4s.tech/img/printscreen06_1.jpg">
 </div>
