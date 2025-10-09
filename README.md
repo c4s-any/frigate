@@ -52,7 +52,7 @@ These models are encrypted models. If you need them, you can contact me, but it 
 
 ## Increased part
 
-Compared with the original Frigate, it adds pedestrian/vehicle feature recognition, Chinese license plate recognition, and Chinese front-end UI text correction. License plate recognition is the [hyperlpr3](https://github.com/szad670401/HyperLPR) code and model added in, no need to pull it at runtime. I've successfully tested building x86 images (nVidia and Coral edgetpu) and running them properly, not testing the arm64 platform (as I don't have the relevant hardware devices on hand).
+Compared with the original Frigate, it adds pedestrian/vehicle feature recognition, Chinese license plate recognition, and Chinese front-end UI text correction. License plate recognition is the [hyperlpr3](https://github.com/szad670401/HyperLPR) code and model added in, no need to pull it at runtime. Some codes were modified so that pedestrian/vehicle features can be used as sub-labels for search and filtering. I've successfully tested building x86 images (nVidia and Coral edgetpu) and running them properly, not testing the arm64 platform (as I don't have the relevant hardware devices on hand).
 
 ## Screenshots
 
