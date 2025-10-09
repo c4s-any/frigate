@@ -2,7 +2,7 @@
   <img align="center" alt="logo" src="https://github.com/blakeblackshear/frigate/blob/dev/docs/static/img/frigate.png">
 </p>
 
-# NVR with realtime local object detection, person/vehicle ReID and semantic search 
+# NVR with realtime local object detection, pedestrian/vehicle ReID and semantic search 
 
 <p align="center"><a href="https://github.com/c4s-any/frigate/blob/dev/README.md">EN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/c4s-any/frigate/blob/dev/README_CN.md">中文</a></p>
 
